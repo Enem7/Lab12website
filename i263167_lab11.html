@@ -5,73 +5,101 @@ SE-D
 
 
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title>Avengers Doomsday</title>
-<link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="A fan-made homepage celebrating Marvel Studios' Avengers: Endgame.">
+  <title>Avengers: Endgame | Earth's Mightiest Heroes</title>
+  <link rel="stylesheet" href="endgame.css">
 </head>
-<style>
-   
-</style>
 <body>
-</body>
-<h1>Avengers Endgame</h1>
-<br>
-<a href="https://www.imdb.com/title/tt21357150/"> About The movie</a>
-<br>
+  <header class="site-header">
+    <a class="brand" href="#home" aria-label="Avengers Endgame home">MARVEL <span>FAN PAGE</span></a>
+    <nav aria-label="Main navigation">
+      <a href="#story">The Story</a>
+      <a href="#moments">Iconic Moments</a>
+    </nav>
+  </header>
 
-<p>Avengers: Endgame is a 2019 American superhero film based on the Marvel Comics superhero team the Avengers. Produced by Marvel Studios</p>
-     <p>and distributed by Walt Disney Studios Motion Pictures, it is the direct sequel to Avengers: Infinity War (2018) and the 22nd film </p>
-     <p>in the Marvel Cinematic Universe (MCU). Directed by Anthony and Joe Russo and written by Christopher Markus and Stephen McFeely, </p>
-     <p>the film features an ensemble cast that includes Robert Downey Jr., Chris Evans, Mark Ruffalo, Chris Hemsworth, Scarlett Johansson,</p>
-      <p>Jeremy Renner, Don Cheadle, Paul Rudd, Brie Larson, Karen Gillan, Danai Gurira, Benedict Wong, Jon Favreau, Bradley Cooper, Gwyneth </p>
-      <p>Paltrow, and Josh Brolin. In the film, the surviving members of the Avengers and their allies attempt to reverse Thanos's actions </p>
-      <p>in Infinity War, which erased half of all life in the universe.<p>
-        <br>
-        <img src="avengerd.jpg" alt="Avengers Endgame">
-<br>
+  <main>
+    <section class="hero" id="home">
+      <div class="hero-content">
+        <p class="eyebrow">THE END OF AN ERA</p>
+        <h1>AVENGERS <span>ENDGAME</span></h1>
+        <p class="hero-tagline">Whatever it takes.</p>
+        <a class="primary-link" href="#story">Explore the movie <span aria-hidden="true">↓</span></a>
+      </div>
+      <div class="hero-art" aria-label="Avengers Endgame movie artwork">
+        <img src="avengerd.jpg" alt="Avengers: Endgame movie poster"
+             onerror="this.style.display='none';">
+        <div class="art-caption">ONE LAST STAND. ONE FINAL CHANCE.</div>
+      </div>
+      <div class="hero-shade"></div>
+    </section>
 
-<h1> Most Memorable Scenes</h1>
-<br>
-<table>
+    <section class="intro section" id="story">
+      <p class="eyebrow">MARVEL STUDIOS</p>
+      <h2>Whatever it takes.</h2>
+      <p>
+        Released in 2019, <strong>Avengers: Endgame</strong> brings together
+        Earth's mightiest heroes for an unforgettable final battle. After
+        Thanos's devastating actions in <em>Avengers: Infinity War</em>, the
+        surviving Avengers must find a way to restore what was lost and give
+        the universe a chance to live again. Filled with courage, sacrifice,
+        friendship, and hope, the film marks a powerful chapter in the
+        Marvel Cinematic Universe.
+      </p>
+    </section>
 
-    <tr>
-        <th>Characters</th>
-           <th> Best Scenes </th>
-            <th> Ratings</th>
-    </tr>
-    <tr>
-        <th>Captain America</th>
-           <th> Lifting the Mjoinir</th>
-           <th> 10/10</th>
-    </tr>
-    <tr>
-       <th>Tony Stark</th>
-           <th> Tony Stark's Snap</th>
-           <th> 9/10</th>
-    </tr>
-    <tr>
-       <th>Doctor Strange</th>
-           <th>Pointing "one" to tony stark</th>
-           <th> 8/10</th>
-    </tr>
-    <tr>
-       <th>Wanda </th>
-           <th> Wanda's Fight Against Thanos</th>
-           <th> 9.5/10</th>
-    </tr>
-  
-</table>
-<br> <br>
-<button onclick="sayDoom()">CLICK ME</button>
+    <section class="moments section" id="moments">
+      <p class="eyebrow">THE MOMENTS WE REMEMBER</p>
+      <h2>Iconic Moments</h2>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th scope="col">Character</th>
+              <th scope="col">Memorable scene</th>
+              <th scope="col">Rating</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Captain America</td>
+              <td>Lifting Mjolnir</td>
+              <td class="rating">10/10</td>
+            </tr>
+            <tr>
+              <td>Tony Stark</td>
+              <td>Tony Stark's snap</td>
+              <td class="rating">9/10</td>
+            </tr>
+            <tr>
+              <td>Doctor Strange</td>
+              <td>Signalling “one” to Tony Stark</td>
+              <td class="rating">8/10</td>
+            </tr>
+            <tr>
+              <td>Wanda</td>
+              <td>Wanda's fight against Thanos</td>
+              <td class="rating">9.5/10</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <button class="message-button" type="button" onclick="sayAvengers()">Avenge the fallen</button>
+    </section>
+  </main>
 
-<script>
-  function sayDoom() {
-    console.log("I will return in Avengers Doomsday");
-    window.alert("I will return in Avengers Doomsday");
-  }
-</script>
+  <footer>
+    <p>Made by a Marvel fan · Avengers: Endgame (2019)</p>
+  </footer>
 
-
+  <script>
+    function sayAvengers() {
+      window.alert("Whatever it takes. Avengers, assemble!");
+    }
+  </script>
 </body>
 </html>

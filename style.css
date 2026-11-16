@@ -1,33 +1,331 @@
- 
- body{
-    background-color: yellow;
- }
- h1{
-         color: red;
-  text-align: center;
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    }
-    h2 {
-         color: red;
-  text-align: center;
-    }
-    p {
-  color: black;
-   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-  text-align: center;
+/* Avengers: Endgame fan-page styling */
+:root {
+  --bg: #090b10;
+  --panel: #111722;
+  --text: #f5f1e9;
+  --muted: #c2c4ca;
+  --red: #b51f2b;
+  --gold: #e4b65b;
+  --line: rgba(228, 182, 91, 0.28);
 }
 
-table{
-  border: 1px solid black;
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  line-height: 1.65;
+}
+
+.site-header {
+  min-height: 70px;
+  padding: 0 7%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  background: rgba(7, 9, 14, 0.96);
+  border-bottom: 1px solid var(--line);
+}
+
+.brand {
+  color: var(--text);
+  font-weight: 900;
+  letter-spacing: 2px;
+  text-decoration: none;
+}
+
+.brand span {
+  color: var(--gold);
+  font-size: 0.7rem;
+  margin-left: 8px;
+}
+
+nav {
+  display: flex;
+  gap: 28px;
+}
+
+nav a {
+  color: var(--muted);
+  text-decoration: none;
+  font-size: 0.95rem;
+  transition: color 0.2s ease;
+}
+
+nav a:hover {
+  color: var(--gold);
+}
+
+.hero {
+  min-height: 590px;
+  padding: 75px 9%;
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  align-items: center;
+  gap: 45px;
+  overflow: hidden;
+  position: relative;
+  isolation: isolate;
+  background:
+    radial-gradient(ellipse at 78% 45%, rgba(151, 31, 39, 0.34), transparent 42%),
+    linear-gradient(115deg, #090b10 15%, #17121a 58%, #300e15 100%);
+}
+
+.hero-content,
+.hero-art {
+  position: relative;
+  z-index: 1;
+}
+
+.eyebrow {
+  margin: 0 0 12px;
+  color: var(--gold);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 4px;
+}
+
+h1 {
+  margin: 0;
+  max-width: 720px;
+  color: #fff;
+  font-size: clamp(3rem, 7vw, 6.4rem);
+  font-weight: 900;
+  line-height: 0.98;
+  letter-spacing: -2px;
+}
+
+h1 span {
+  display: block;
+  color: var(--red);
+  text-shadow: 0 5px 28px rgba(181, 31, 43, 0.25);
+}
+
+.hero-tagline {
+  margin: 25px 0 30px;
+  color: var(--gold);
+  font-size: 1.4rem;
+  font-style: italic;
+  letter-spacing: 1px;
+}
+
+.primary-link {
+  display: inline-block;
+  padding: 12px 20px;
+  color: #111;
+  background: var(--gold);
+  border: 1px solid var(--gold);
+  border-radius: 3px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.primary-link:hover {
+  background: #f1ce83;
+  transform: translateY(-2px);
+}
+
+.primary-link span {
+  margin-left: 10px;
+}
+
+.hero-art {
+  min-height: 365px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(228, 182, 91, 0.3);
+  background: linear-gradient(145deg, rgba(181, 31, 43, 0.24), rgba(8, 10, 15, 0.75));
+  box-shadow: 0 20px 65px rgba(0, 0, 0, 0.45);
+}
+
+.hero-art img {
+  display: block;
   width: 100%;
-  height: 500%;
+  height: 430px;
+  object-fit: cover;
+  object-position: center 25%;
 }
-th {
-    background-color: yellowgreen;
-}
-button{
-    color: red;
-    text-align: center;
-    align-items: center;
 
+.art-caption {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 14px;
+  color: var(--gold);
+  background: rgba(5, 7, 11, 0.82);
+  text-align: center;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 3px;
+}
+
+.section {
+  padding: 85px 10%;
+  text-align: center;
+}
+
+.intro {
+  background: #0d1119;
+}
+
+h2 {
+  margin: 0 0 22px;
+  color: var(--gold);
+  font-size: clamp(2rem, 4vw, 3rem);
+  line-height: 1.15;
+}
+
+.intro > p:last-child {
+  max-width: 850px;
+  margin: 0 auto;
+  color: var(--muted);
+  font-size: 1.12rem;
+}
+
+.intro strong {
+  color: #fff;
+}
+
+.moments {
+  background:
+    linear-gradient(rgba(9, 11, 16, 0.94), rgba(9, 11, 16, 0.97)),
+    radial-gradient(circle at center, #5b1720, transparent 65%);
+}
+
+.table-wrap {
+  max-width: 900px;
+  margin: 35px auto 30px;
+  overflow-x: auto;
+  border: 1px solid var(--line);
+  border-radius: 5px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+th,
+td {
+  padding: 16px 20px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.09);
+}
+
+thead th {
+  color: var(--gold);
+  background: #24151b;
+  font-size: 0.9rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+tbody td {
+  color: var(--muted);
+  background: rgba(17, 23, 34, 0.78);
+}
+
+tbody tr:last-child td {
+  border-bottom: 0;
+}
+
+tbody tr:hover td {
+  background: #1a202c;
+}
+
+.rating {
+  color: var(--gold);
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.message-button {
+  padding: 13px 25px;
+  color: #fff;
+  background: var(--red);
+  border: 1px solid var(--red);
+  border-radius: 3px;
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.message-button:hover {
+  background: #8f1721;
+  transform: translateY(-2px);
+}
+
+footer {
+  padding: 20px;
+  color: #969ba5;
+  background: #06080c;
+  border-top: 1px solid var(--line);
+  text-align: center;
+  font-size: 0.85rem;
+}
+
+footer p {
+  margin: 0;
+}
+
+@media (max-width: 760px) {
+  .site-header {
+    padding: 18px 6%;
+    flex-direction: column;
+  }
+
+  nav {
+    gap: 20px;
+  }
+
+  .hero {
+    grid-template-columns: 1fr;
+    padding: 65px 7%;
+  }
+
+  .hero-art {
+    min-height: 260px;
+  }
+
+  .hero-art img {
+    height: 340px;
+  }
+
+  .section {
+    padding: 65px 7%;
+  }
+
+  th,
+  td {
+    padding: 13px 14px;
+  }
+}
+
+@media (max-width: 420px) {
+  .brand span {
+    display: block;
+    margin: 0;
+  }
+
+  nav {
+    gap: 14px;
+    font-size: 0.85rem;
+  }
+
+  .eyebrow {
+    letter-spacing: 2px;
+  }
 }
