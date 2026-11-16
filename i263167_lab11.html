@@ -9,7 +9,7 @@ SE-D
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="A fan-made Avengers: Endgame website with a movie gallery and a separate memorable moments page.">
+  <meta name="description" content="A fan-made Avengers: Endgame website with a movie gallery, memorable moments, and Avengers movie suggestions.">
   <title>Avengers: Endgame | Earth's Mightiest Heroes</title>
   <style>
 /* Avengers: Endgame fan-page styling */
@@ -98,6 +98,24 @@ h1 span { display: block; color: var(--red); text-shadow: 0 5px 28px rgba(181,31
 }
 .primary-link:hover { background: #f1ce83; transform: translateY(-2px); }
 .primary-link span { margin-left: 10px; }
+
+.secondary-button {
+  display: inline-block;
+  padding: 12px 20px;
+  color: var(--gold);
+  background: transparent;
+  border: 1px solid var(--gold);
+  border-radius: 3px;
+  font-weight: 700;
+  cursor: pointer;
+  font: inherit;
+  transition: .2s ease;
+}
+.secondary-button:hover {
+  background: rgba(228, 182, 91, 0.12);
+  transform: translateY(-2px);
+}
+
 .hero-art {
   min-height: 365px;
   display: flex;
@@ -180,6 +198,75 @@ h2 { margin: 0 0 22px; color: var(--gold); font-size: clamp(1.5rem, 3vw, 2.3rem)
 .secondary-link { color: var(--gold); text-decoration: none; font-weight: 700; }
 .secondary-link:hover { text-decoration: underline; }
 
+/* Page 3: Movie Suggestions */
+.movies-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 28px;
+  max-width: 1100px;
+  margin: 0 auto 45px;
+  text-align: left;
+}
+.movie-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 28px 25px;
+  background: #141a25;
+  border: 1px solid var(--line);
+  box-shadow: 0 12px 35px rgba(0,0,0,.25);
+}
+.movie-year {
+  margin: 0 0 8px;
+  color: var(--red);
+  font-size: .82rem;
+  font-weight: 900;
+  letter-spacing: 2px;
+}
+.movie-card h2 {
+  margin: 0 0 12px;
+  color: var(--gold);
+  font-size: 1.45rem;
+}
+.movie-card p.movie-desc {
+  margin: 0 0 18px;
+  color: var(--muted);
+}
+.movie-tag {
+  display: inline-block;
+  padding: 4px 10px;
+  font-size: .78rem;
+  font-weight: 700;
+  color: var(--gold);
+  background: rgba(228, 182, 91, 0.12);
+  border: 1px solid var(--line);
+  border-radius: 3px;
+}
+
+/* About Section at the bottom */
+.about-section {
+  padding: 75px 10%;
+  text-align: center;
+  background: #080a0f;
+  border-top: 1px solid var(--line);
+}
+.about-section p {
+  max-width: 780px;
+  margin: 0 auto;
+  color: var(--muted);
+  font-size: 1.05rem;
+}
+.about-section strong {
+  color: #fff;
+}
+
+.nav-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 16px;
+}
+
 footer {
   padding: 20px;
   color: #969ba5;
@@ -189,6 +276,10 @@ footer {
   font-size: .85rem;
 }
 footer p { margin: 0; }
+
+@media (max-width: 900px) {
+  .movies-grid { grid-template-columns: 1fr; }
+}
 
 @media (max-width: 760px) {
   .site-header { padding: 18px 6%; flex-direction: column; }
@@ -208,25 +299,25 @@ footer p { margin: 0; }
   .moment-card img { height: 220px; }
 }
 
-    /* The two screens are kept in this one HTML document. */
-    .page { display: none; }
-    .page.active { display: block; }
-    .page-button { cursor: pointer; font: inherit; }
-    .back-row { padding: 35px 8% 0; background: #0d1119; }
-    .back-row .primary-link { margin-bottom: 5px; }
-    .site-header nav button {
-      padding: 0;
-      color: var(--muted);
-      background: none;
-      border: 0;
-      cursor: pointer;
-      font: inherit;
-      font-size: .95rem;
-    }
-    .site-header nav button:hover { color: var(--gold); }
-    @media (max-width: 760px) {
-      .site-header nav { display: flex; flex-wrap: wrap; }
-    }
+/* Multi-screen page switching */
+.page { display: none; }
+.page.active { display: block; }
+.page-button { cursor: pointer; font: inherit; }
+.back-row { padding: 35px 8% 0; background: #0d1119; }
+.back-row .primary-link { margin-bottom: 5px; }
+.site-header nav button {
+  padding: 0;
+  color: var(--muted);
+  background: none;
+  border: 0;
+  cursor: pointer;
+  font: inherit;
+  font-size: .95rem;
+}
+.site-header nav button:hover { color: var(--gold); }
+@media (max-width: 760px) {
+  .site-header nav { display: flex; flex-wrap: wrap; }
+}
   </style>
 </head>
 <body>
@@ -236,6 +327,9 @@ footer p { margin: 0; }
       <button type="button" onclick="showPage('home')">Home</button>
       <a href="#story" onclick="showPage('home')">The Story</a>
       <a href="#gallery" onclick="showPage('home')">Movie Gallery</a>
+      <button type="button" onclick="showPage('moments')">Memorable Moments</button>
+      <button type="button" onclick="showPage('movies')">More Movies</button>
+      <a href="#about">About</a>
     </nav>
   </header>
 
@@ -269,7 +363,6 @@ footer p { margin: 0; }
       </p>
     </section>
 
-    <!-- The old table has been replaced with a small movie image gallery. -->
     <section class="gallery-section section" id="gallery">
       <p class="eyebrow">A GLIMPSE OF THE FINAL BATTLE</p>
       <h2>Inside Endgame</h2>
@@ -293,7 +386,7 @@ footer p { margin: 0; }
     </section>
   </main>
 
-  <!-- PAGE 2: MEMORABLE MOMENTS. It is a separate screen, not a section on the homepage. -->
+  <!-- PAGE 2: MEMORABLE MOMENTS -->
   <main id="momentsPage" class="page">
     <section class="moments-hero">
       <p class="eyebrow">THE MOMENTS THAT MADE HISTORY</p>
@@ -349,8 +442,89 @@ footer p { margin: 0; }
           </div>
         </article>
       </div>
+
+      <!-- Button to Page 3 -->
+      <button class="primary-link page-button" type="button" onclick="showPage('movies')">
+        Suggested Avengers Movies <span aria-hidden="true">→</span>
+      </button>
     </section>
   </main>
+
+  <!-- PAGE 3: SUGGESTED AVENGERS MOVIES -->
+  <main id="moviesPage" class="page">
+    <section class="moments-hero">
+      <p class="eyebrow">CONTINUE THE SAGA</p>
+      <h1>AVENGERS <span>MOVIES</span></h1>
+      <p class="hero-tagline">Essential films from the Infinity Saga to watch next.</p>
+    </section>
+
+    <div class="back-row">
+      <button class="primary-link page-button" type="button" onclick="showPage('moments')">
+        <span aria-hidden="true">←</span> Back to Memorable Moments
+      </button>
+    </div>
+
+    <section class="moment-section section">
+      <div class="movies-grid">
+        <article class="movie-card">
+          <div>
+            <p class="movie-year">2012 · PHASE ONE</p>
+            <h2>The Avengers</h2>
+            <p class="movie-desc">
+              Nick Fury brings together Iron Man, Captain America, Thor, Hulk, Black Widow, and Hawkeye for the very first time to stop Loki and his alien army from conquering Earth.
+            </p>
+          </div>
+          <div>
+            <span class="movie-tag">Where It All Began</span>
+          </div>
+        </article>
+
+        <article class="movie-card">
+          <div>
+            <p class="movie-year">2015 · PHASE TWO</p>
+            <h2>Avengers: Age of Ultron</h2>
+            <p class="movie-desc">
+              When Tony Stark's peacekeeping program goes rogue, Earth's mightiest heroes must reunite to defeat Ultron, an artificial intelligence bent on human extinction.
+            </p>
+          </div>
+          <div>
+            <span class="movie-tag">New Heroes Rise</span>
+          </div>
+        </article>
+
+        <article class="movie-card">
+          <div>
+            <p class="movie-year">2018 · PHASE THREE</p>
+            <h2>Avengers: Infinity War</h2>
+            <p class="movie-desc">
+              The Avengers and their allies risk everything to stop the powerful Thanos before his quest to collect all six Infinity Stones destroys half of all life in the universe.
+            </p>
+          </div>
+          <div>
+            <span class="movie-tag">Must Watch Before Endgame</span>
+          </div>
+        </article>
+      </div>
+
+      <div class="nav-actions">
+        <button class="secondary-button" type="button" onclick="showPage('moments')">
+          ← Back to Moments
+        </button>
+        <button class="primary-link page-button" type="button" onclick="showPage('home')">
+          Back to Homepage <span aria-hidden="true">⌂</span>
+        </button>
+      </div>
+    </section>
+  </main>
+
+  <!-- ABOUT SECTION -->
+  <section class="about-section" id="about">
+    <p class="eyebrow">ABOUT THIS SITE</p>
+    <h2>About the Fan Page</h2>
+    <p>
+      This tribute website was created by a Marvel fan to celebrate <strong>Avengers: Endgame</strong> and the iconic films of the Infinity Saga. Explore the story, revisit the most unforgettable scenes from the final battle, and discover must-watch Avengers movies in one place.
+    </p>
+  </section>
 
   <footer>
     <p>Made by a Marvel fan · Avengers: Endgame (2019)</p>
@@ -360,9 +534,11 @@ footer p { margin: 0; }
     function showPage(pageName) {
       const home = document.getElementById('homePage');
       const moments = document.getElementById('momentsPage');
+      const movies = document.getElementById('moviesPage');
 
       home.classList.toggle('active', pageName === 'home');
       moments.classList.toggle('active', pageName === 'moments');
+      movies.classList.toggle('active', pageName === 'movies');
 
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
